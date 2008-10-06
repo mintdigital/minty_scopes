@@ -1,0 +1,3 @@
+[submodule "autotest"]
+	path = autotest
+	url = git://github.com/metaskills/autotest_railsplugin.git

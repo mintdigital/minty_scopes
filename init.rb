@@ -1,0 +1,1 @@
+require 'minty_scopes'

@@ -1,0 +1,60 @@
+What
+====
+
+A collection of handy `named_scope`s that you should be able to use in just about any model.
+
+Why
+===
+
+Named scopes turn ugly finders into pretty ones.
+
+Howto
+=====
+
+    # environment.rb
+    config.gem 'minty_scopes'
+
+    # any model
+    class Post < ActiveRecord::Base
+      extend MintyScopes
+    end
+
+Scopes
+======
+
+Scopes are grouped into modules by functionality. If you only want some scopes, feel free to extend only the modules you want: `extend MintyScopes::Timestamps`
+
+### Associations ###
+
+    with(:comments)       #=> :joins => :comments, :group => 'posts.id' (only posts with comments)
+    without(:comments)    #=> :joins => 'LEFT JOIN comments ON posts.id = comments.post_id', 
+                          #   :conditions => {'comments.id' => nil}
+    including(:comments)  #=> :include => [:comments]
+
+### Except ###
+
+    except(post)              #=> [ 'posts.id NOT IN (?)', post ]
+    except(post, post)        #=> [ 'posts.id NOT IN (?)', [post, post] ]
+    except(post_collection)   #=> [ 'posts.id NOT IN (?)', post_collection ]
+
+### Order ###
+
+    newest      #=> { :order => 'created_at DESC', :limit => per_page || limit }
+    newest(20)  #=> { :order => 'created_at DESC', :limit => 20 }
+    oldest      #=> { :order => 'created_at ASC',  :limit => per_page || limit }
+    oldest(20)  #=> { :order => 'created_at ASC',  :limit => 20 }
+
+### Timestamps ###
+
+    created_on(date)  #=> :created_at => (date.beginning_of_day..date.end_of_day)
+    modified_on(date) #=> :modified_at => (date.beginning_of_day..date.end_of_day)
+
+Thanks
+======
+
+Big thanks to Ryan Daigle for his [utility_scopes](http://github.com/yfactorial/utility_scope)  plugin, the inspiration for this project.
+
+License
+=======
+
+© 2008 Dean Strelau, Mint Digital. All Rights Reserved.
