@@ -11,10 +11,19 @@ Named scopes turn ugly finders into pretty ones.
 Howto
 =====
 
-    # environment.rb
-    config.gem 'minty_scopes'
+Specify the gem dependency in your `environment.rb`:
 
-    # any model
+    config.gem 'mintdigital-minty_scopes',
+                :lib => 'minty_scopes',
+                :source => "http://gems.github.com"
+
+Then install and unpack the gem:
+
+    rake gems:install
+    rake gems:unpack
+
+In any model, you can get the scopes by extending the module:
+
     class Post < ActiveRecord::Base
       extend MintyScopes
     end
