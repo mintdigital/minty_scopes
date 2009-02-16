@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dean Strelau"]
-  s.date = %q{2008-10-06}
+  s.date = %q{2009-02-16}
   s.email = %q{dean@mintdigital.com}
   s.extra_rdoc_files = ["README.mkdn", "Rakefile"]
   s.files = ["Rakefile", "README.mkdn", "lib/minty_scopes", "lib/minty_scopes/associations.rb", "lib/minty_scopes/except.rb", "lib/minty_scopes/order.rb", "lib/minty_scopes/timestamps.rb", "lib/minty_scopes/version.rb", "lib/minty_scopes.rb", "test/test_helper.rb", "test/units", "test/units/associations_test.rb", "test/units/except_test.rb", "test/units/order_test.rb", "test/units/timestamps_test.rb"]
