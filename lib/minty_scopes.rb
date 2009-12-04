@@ -1,5 +1,3 @@
-require 'minty_scopes/version'
-
 require 'minty_scopes/associations'
 require 'minty_scopes/except'
 require 'minty_scopes/order'

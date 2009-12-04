@@ -4,8 +4,8 @@ require 'minty_scopes'
 require 'test/unit'
 require 'rubygems'
 require 'shoulda'
-require 'activerecord'
-require 'activesupport'
+require 'active_record'
+require 'active_support'
 
 class Post < ActiveRecord::Base
   def self.quoted_table_name; 'posts'; end
